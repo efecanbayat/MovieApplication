@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/drawable-v24/bg_circle.xml" value="0.303" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/drawable-v24/ic_arrow_back.xml" value="0.1995" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.102" />
+        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/drawable/bg_circle.xml" value="0.303" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1995" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.102" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/drawable/ic_no_results.xml" value="0.303" />
@@ -13,6 +15,8 @@
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/custom_progress_bar.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/fragment_movie_detail.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_cast.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_movie.xml" value="0.1721311475409836" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_movie_list.xml" value="0.1" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_movie_loading.xml" value="0.20854700854700856" />

@@ -1,9 +1,13 @@
 package com.efecanbayat.movieapplication.data.remote.api
 
 import com.efecanbayat.movieapplication.data.model.response.home.MovieResponse
+import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieCreditsResponse
+import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieDetailResponse
+import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieVideoResponse
 import com.efecanbayat.movieapplication.data.model.response.search.SearchResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieService {
@@ -16,4 +20,19 @@ interface MovieService {
     suspend fun searchMovieAndPerson(
         @Query("query") query: String?
     ): Response<SearchResponse>
+
+    @GET("movie/{movie_id}")
+    suspend fun getMovie(
+        @Path("movie_id") movie_id: Int
+    ): Response<MovieDetailResponse>
+
+    @GET("movie/{movie_id}/credits")
+    suspend fun getMovieCredits(
+        @Path("movie_id") movie_id: Int
+    ): Response<MovieCreditsResponse>
+
+    @GET("movie/{movie_id}/videos")
+    suspend fun getMovieVideos(
+        @Path("movie_id") movie_id: Int
+    ): Response<MovieVideoResponse>
 }

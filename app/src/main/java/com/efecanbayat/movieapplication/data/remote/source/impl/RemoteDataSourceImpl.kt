@@ -2,6 +2,9 @@ package com.efecanbayat.movieapplication.data.remote.source.impl
 
 import com.efecanbayat.movieapplication.data.base.BaseRemoteDataSource
 import com.efecanbayat.movieapplication.data.model.response.home.MovieResponse
+import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieCreditsResponse
+import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieDetailResponse
+import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieVideoResponse
 import com.efecanbayat.movieapplication.data.model.response.search.SearchResponse
 import com.efecanbayat.movieapplication.data.remote.api.MovieService
 import com.efecanbayat.movieapplication.data.remote.source.RemoteDataSource
@@ -21,6 +24,24 @@ class RemoteDataSourceImpl @Inject constructor(
     override suspend fun searchMovieAndPerson(query: String): Flow<DataState<SearchResponse>> {
         return getResult {
             movieService.searchMovieAndPerson(query)
+        }
+    }
+
+    override suspend fun getMovie(movieId: Int): Flow<DataState<MovieDetailResponse>> {
+        return getResult {
+            movieService.getMovie(movieId)
+        }
+    }
+
+    override suspend fun getMovieCredits(movieId: Int): Flow<DataState<MovieCreditsResponse>> {
+        return getResult {
+            movieService.getMovieCredits(movieId)
+        }
+    }
+
+    override suspend fun getMovieVideos(movieId: Int): Flow<DataState<MovieVideoResponse>> {
+        return getResult {
+            movieService.getMovieVideos(movieId)
         }
     }
 }

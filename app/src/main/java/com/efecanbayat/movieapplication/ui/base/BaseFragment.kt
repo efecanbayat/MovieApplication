@@ -9,6 +9,7 @@ import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.efecanbayat.movieapplication.R
 import com.efecanbayat.movieapplication.ui.MainActivity
 import com.efecanbayat.movieapplication.ui.dialog.CustomProgressBar
@@ -18,8 +19,6 @@ abstract class BaseFragment<binding : ViewDataBinding> : Fragment() {
 
     private var progressBar: CustomProgressBar? = null
     lateinit var binding: binding
-
-    private var pageTitle: String = "Movies"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,16 +45,17 @@ abstract class BaseFragment<binding : ViewDataBinding> : Fragment() {
             when (layoutId) {
                 R.layout.fragment_home -> {
                     isVisibleToolbar(true)
-                    setPageTitle("Movies")
-                    setTitleText(pageTitle)
                     isVisibleBackButton(false)
+                }
+                R.layout.fragment_movie_detail -> {
+                    isVisibleToolbar(true)
+                    isVisibleBackButton(true)
+                    backButtonClick {
+                        findNavController().popBackStack()
+                    }
                 }
             }
         }
-    }
-
-    fun setPageTitle(title: String) {
-        pageTitle = title
     }
 
     fun showProgress() {

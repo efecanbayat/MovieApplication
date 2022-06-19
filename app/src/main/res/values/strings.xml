@@ -2,4 +2,5 @@
     <string name="app_name">MovieApplication</string>
     <string name="title_movies">Movies</string>
     <string name="actors">Actors</string>
+    <string name="video">VIDEO</string>
 </resources>

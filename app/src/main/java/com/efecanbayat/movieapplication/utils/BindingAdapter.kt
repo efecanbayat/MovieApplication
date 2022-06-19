@@ -14,6 +14,9 @@ import com.efecanbayat.movieapplication.ui.feature.home.adapter.HomeAdapter
 import com.efecanbayat.movieapplication.ui.feature.home.adapter.MovieAdapter
 import com.efecanbayat.movieapplication.ui.feature.home.adapter.SearchedMovieAdapter
 import com.efecanbayat.movieapplication.ui.feature.home.adapter.SearchedPersonAdapter
+import com.efecanbayat.movieapplication.ui.feature.movieDetail.CastData
+import com.efecanbayat.movieapplication.ui.feature.movieDetail.OnCastItemClickListener
+import com.efecanbayat.movieapplication.ui.feature.movieDetail.adapter.MovieCastAdapter
 
 @BindingAdapter("imageUrl")
 fun ImageView.loadUrlImage(url: String?) {
@@ -71,5 +74,18 @@ fun RecyclerView.loadPopularMovieList(popularMovieData: PopularMovieData?, onIte
             adapter as MovieAdapter
         }
         movieAdapter.submitList(it)
+    }
+}
+
+@BindingAdapter(value = ["app:loadCastList", "app:onItemClickListener"])
+fun RecyclerView.loadCastList(castData: CastData?, onItemClickListener: OnCastItemClickListener) {
+    castData?.castItem?.let {
+        val movieCastAdapter = if (adapter != null) {
+            adapter as MovieCastAdapter
+        } else {
+            adapter = MovieCastAdapter(onItemClickListener)
+            adapter as MovieCastAdapter
+        }
+        movieCastAdapter.submitList(it)
     }
 }

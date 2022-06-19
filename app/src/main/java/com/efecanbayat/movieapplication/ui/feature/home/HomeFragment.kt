@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.efecanbayat.movieapplication.R
 import com.efecanbayat.movieapplication.databinding.FragmentHomeBinding
 import com.efecanbayat.movieapplication.ui.base.BaseFragment
@@ -45,16 +46,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnHomeItemClickListene
         }
     }
 
-    override fun onMovieClick(movieId: Int?, movieTitle: String?) {
-        Log.v("Efecan","MovieClick")
+    override fun onMovieClick(movieId: Int?) {
+        movieId?.let {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(movieId))
+        }
     }
 
-    override fun onSearchedPersonClick(personId: Int?, personName: String?) {
+    override fun onSearchedPersonClick(personId: Int?) {
         Log.v("Efecan","SearchedPersonClick")
     }
 }
 
 interface OnHomeItemClickListener {
-    fun onMovieClick(movieId: Int?, movieTitle: String?)
-    fun onSearchedPersonClick(personId: Int?, personName: String?)
+    fun onMovieClick(movieId: Int?)
+    fun onSearchedPersonClick(personId: Int?)
 }

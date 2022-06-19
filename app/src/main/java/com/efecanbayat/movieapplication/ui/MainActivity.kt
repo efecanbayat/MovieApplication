@@ -29,10 +29,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setTitleText(title: String) {
-        binding.tvTitle.text = title
-    }
-
     fun isVisibleToolbar(isVisibleToolbar: Boolean) {
         if (isVisibleToolbar) binding.toolbar.show()
         else binding.toolbar.gone()
