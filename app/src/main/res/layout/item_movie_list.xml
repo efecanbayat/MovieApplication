@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onItemClickListener"
+            type="com.efecanbayat.movieapplication.ui.feature.home.OnHomeItemClickListener" />
+
+        <variable
+            name="popularMovieData"
+            type="com.efecanbayat.movieapplication.data.model.PopularMovieData" />
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMovies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:loadPopularMovieList="@{popularMovieData}"
+        app:onItemClickListener="@{onItemClickListener}"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_movie" />
+</layout>

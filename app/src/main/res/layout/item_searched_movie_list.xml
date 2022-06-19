@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="onItemClickListener"
+            type="com.efecanbayat.movieapplication.ui.feature.home.OnHomeItemClickListener" />
+
+        <variable
+            name="searchedMovieData"
+            type="com.efecanbayat.movieapplication.data.model.SearchedMovieData" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/title_movies"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearchedMovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            android:visibility="@{searchedMovieData.movieItem.isEmpty() ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:loadSearchedMovieList="@{searchedMovieData}"
+            app:onItemClickListener="@{onItemClickListener}"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_searched_movie" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMovieNotFound"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_no_results"
+            android:visibility="@{searchedMovieData.movieItem.isEmpty() ? View.VISIBLE : View.GONE}" />
+    </LinearLayout>
+</layout>

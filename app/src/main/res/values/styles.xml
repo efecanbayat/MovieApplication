@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MovieSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="colorControlActivated">#000000</item>
+    </style>
+</resources>
