@@ -3,10 +3,10 @@ package com.efecanbayat.movieapplication.ui.feature.movieDetail
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.efecanbayat.movieapplication.R
 import com.efecanbayat.movieapplication.databinding.FragmentMovieDetailBinding
@@ -59,7 +59,9 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(), OnCastIt
     }
 
     override fun onCastItemClick(personId: Int?) {
-        Log.v("Efecan", "Cast item clicked: $personId")
+        personId?.let {
+            findNavController().navigate(MovieDetailFragmentDirections.actionMovieDetailFragmentToPersonDetailFragment(personId))
+        }
     }
 }
 

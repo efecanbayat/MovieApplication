@@ -17,6 +17,8 @@ import com.efecanbayat.movieapplication.ui.feature.home.adapter.SearchedPersonAd
 import com.efecanbayat.movieapplication.ui.feature.movieDetail.CastData
 import com.efecanbayat.movieapplication.ui.feature.movieDetail.OnCastItemClickListener
 import com.efecanbayat.movieapplication.ui.feature.movieDetail.adapter.MovieCastAdapter
+import com.efecanbayat.movieapplication.ui.feature.personDetail.CreditsData
+import com.efecanbayat.movieapplication.ui.feature.personDetail.adapter.PersonCreditsAdapter
 
 @BindingAdapter("imageUrl")
 fun ImageView.loadUrlImage(url: String?) {
@@ -87,5 +89,18 @@ fun RecyclerView.loadCastList(castData: CastData?, onItemClickListener: OnCastIt
             adapter as MovieCastAdapter
         }
         movieCastAdapter.submitList(it)
+    }
+}
+
+@BindingAdapter(value = ["app:loadCreditList"])
+fun RecyclerView.loadCreditList(creditsData: CreditsData?) {
+    creditsData?.creditsItem?.let {
+        val personCreditsAdapter = if (adapter != null) {
+            adapter as PersonCreditsAdapter
+        } else {
+            adapter = PersonCreditsAdapter()
+            adapter as PersonCreditsAdapter
+        }
+        personCreditsAdapter.submitList(it)
     }
 }

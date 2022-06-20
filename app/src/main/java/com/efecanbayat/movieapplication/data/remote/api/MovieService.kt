@@ -4,6 +4,8 @@ import com.efecanbayat.movieapplication.data.model.response.home.MovieResponse
 import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieCreditsResponse
 import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieDetailResponse
 import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieVideoResponse
+import com.efecanbayat.movieapplication.data.model.response.personDetail.PersonCreditsResponse
+import com.efecanbayat.movieapplication.data.model.response.personDetail.PersonDetailResponse
 import com.efecanbayat.movieapplication.data.model.response.search.SearchResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -35,4 +37,14 @@ interface MovieService {
     suspend fun getMovieVideos(
         @Path("movie_id") movie_id: Int
     ): Response<MovieVideoResponse>
+
+    @GET("person/{person_id}")
+    suspend fun getPerson(
+        @Path("person_id") person_id: Int
+    ): Response<PersonDetailResponse>
+
+    @GET("person/{person_id}/combined_credits")
+    suspend fun getPersonCredits(
+        @Path("person_id") person_id: Int
+    ): Response<PersonCreditsResponse>
 }

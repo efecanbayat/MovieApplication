@@ -54,6 +54,13 @@ abstract class BaseFragment<binding : ViewDataBinding> : Fragment() {
                         findNavController().popBackStack()
                     }
                 }
+                R.layout.fragment_person_detail -> {
+                    isVisibleToolbar(true)
+                    isVisibleBackButton(true)
+                    backButtonClick {
+                        findNavController().popBackStack()
+                    }
+                }
             }
         }
     }

@@ -53,7 +53,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnHomeItemClickListene
     }
 
     override fun onSearchedPersonClick(personId: Int?) {
-        Log.v("Efecan","SearchedPersonClick")
+        personId?.let {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPersonDetailFragment(personId))
+        }
     }
 }
 

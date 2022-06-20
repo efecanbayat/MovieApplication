@@ -3,4 +3,5 @@
     <string name="title_movies">Movies</string>
     <string name="actors">Actors</string>
     <string name="video">VIDEO</string>
+    <string name="credits">Credits</string>
 </resources>
