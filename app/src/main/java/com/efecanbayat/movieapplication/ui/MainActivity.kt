@@ -33,4 +33,8 @@ class MainActivity : AppCompatActivity() {
         if (isVisibleToolbar) binding.toolbar.show()
         else binding.toolbar.gone()
     }
+
+    fun setTitleText(title: String) {
+        binding.tvTitle.text = title
+    }
 }

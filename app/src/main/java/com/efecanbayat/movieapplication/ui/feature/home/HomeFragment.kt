@@ -46,20 +46,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnHomeItemClickListene
         }
     }
 
-    override fun onMovieClick(movieId: Int?) {
+    override fun onMovieClick(movieId: Int?, title: String?) {
         movieId?.let {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(movieId))
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(movieId, title))
         }
     }
 
-    override fun onSearchedPersonClick(personId: Int?) {
+    override fun onSearchedPersonClick(personId: Int?, name: String?) {
         personId?.let {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPersonDetailFragment(personId))
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPersonDetailFragment(personId, name))
         }
     }
 }
 
 interface OnHomeItemClickListener {
-    fun onMovieClick(movieId: Int?)
-    fun onSearchedPersonClick(personId: Int?)
+    fun onMovieClick(movieId: Int?, title: String?)
+    fun onSearchedPersonClick(personId: Int?, name: String?)
 }

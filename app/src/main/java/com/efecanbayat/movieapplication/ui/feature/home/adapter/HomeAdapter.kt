@@ -3,7 +3,6 @@ package com.efecanbayat.movieapplication.ui.feature.home.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.efecanbayat.movieapplication.R
@@ -11,11 +10,9 @@ import com.efecanbayat.movieapplication.data.model.*
 import com.efecanbayat.movieapplication.databinding.ItemMovieListBinding
 import com.efecanbayat.movieapplication.databinding.ItemSearchedMovieListBinding
 import com.efecanbayat.movieapplication.databinding.ItemSearchedPersonListBinding
-import com.efecanbayat.movieapplication.ui.feature.home.HomeViewModel
-import com.efecanbayat.movieapplication.ui.feature.home.MovieItemViewType
 import com.efecanbayat.movieapplication.ui.feature.home.OnHomeItemClickListener
 
-class HomeAdapter(private val onItemClickListener: OnHomeItemClickListener, private val viewModel: HomeViewModel) : ListAdapter<HomeData, RecyclerView.ViewHolder>(HomeDataDiffUtil()) {
+class HomeAdapter(private val onItemClickListener: OnHomeItemClickListener) : ListAdapter<HomeData, RecyclerView.ViewHolder>(HomeDataDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -41,7 +38,7 @@ class HomeAdapter(private val onItemClickListener: OnHomeItemClickListener, priv
                 (holder as SearchedPersonViewHolder).bind(getItem(position) as SearchedPersonData, onItemClickListener)
             }
             R.layout.item_movie_list -> {
-                (holder as PopularMoviesViewHolder).bind(getItem(position) as PopularMovieData, onItemClickListener, viewModel)
+                (holder as PopularMoviesViewHolder).bind(getItem(position) as PopularMovieData, onItemClickListener)
             }
         }
     }
@@ -94,30 +91,10 @@ class HomeAdapter(private val onItemClickListener: OnHomeItemClickListener, priv
     }
 
     inner class PopularMoviesViewHolder(private val binding: ItemMovieListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(popularMovieData: PopularMovieData, onItemClickListener: OnHomeItemClickListener, viewModel: HomeViewModel) {
+        fun bind(popularMovieData: PopularMovieData, onItemClickListener: OnHomeItemClickListener) {
             binding.popularMovieData = popularMovieData
             binding.onItemClickListener = onItemClickListener
             binding.executePendingBindings()
-
-            binding.rvMovies.clearOnScrollListeners()
-            binding.rvMovies.post {
-                binding.rvMovies.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                        super.onScrollStateChanged(recyclerView, newState)
-                        with(recyclerView.layoutManager as LinearLayoutManager) {
-                            if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
-                                (recyclerView.adapter as MovieAdapter).currentList.getOrNull(
-                                    findLastVisibleItemPosition()
-                                )?.let { safeMovieItemViewType ->
-                                    if (safeMovieItemViewType is MovieItemViewType.Loading) {
-                                        viewModel.getMovies(true)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                })
-            }
         }
     }
 }

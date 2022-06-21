@@ -1,9 +1,9 @@
-package com.efecanbayat.movieapplication.ui.feature.personDetail
+package com.efecanbayat.movieapplication.ui.feature.persondetail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.efecanbayat.movieapplication.data.model.response.personDetail.Cast
-import com.efecanbayat.movieapplication.data.model.response.personDetail.PersonDetailResponse
+import com.efecanbayat.movieapplication.data.model.response.persondetail.Cast
+import com.efecanbayat.movieapplication.data.model.response.persondetail.PersonDetailResponse
 import com.efecanbayat.movieapplication.data.repository.MovieRepository
 import com.efecanbayat.movieapplication.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,8 +35,8 @@ class PersonDetailViewModel @Inject constructor(
                         _uiState.update { it.copy(isLoading = true) }
                     }
                     is DataState.Success -> {
+                        getPersonCredits(personId)
                         _uiState.update {
-                            getPersonCredits(personId)
                             it.copy(
                                 person = response.data,
                                 isLoading = false,

@@ -1,4 +1,4 @@
-package com.efecanbayat.movieapplication.ui.feature.personDetail
+package com.efecanbayat.movieapplication.ui.feature.persondetail
 
 import android.os.Bundle
 import android.view.View
@@ -19,6 +19,7 @@ class PersonDetailFragment : BaseFragment<FragmentPersonDetailBinding>() {
     private val args: PersonDetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setPageTitle(args.name ?: getString(R.string.person_name))
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getPerson(args.id)

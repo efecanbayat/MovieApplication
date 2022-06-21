@@ -4,6 +4,7 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.efecanbayat.movieapplication.R
 import com.efecanbayat.movieapplication.data.model.HomeDataHolder
 import com.efecanbayat.movieapplication.data.model.PopularMovieData
 import com.efecanbayat.movieapplication.data.model.SearchedMovieData
@@ -14,26 +15,31 @@ import com.efecanbayat.movieapplication.ui.feature.home.adapter.HomeAdapter
 import com.efecanbayat.movieapplication.ui.feature.home.adapter.MovieAdapter
 import com.efecanbayat.movieapplication.ui.feature.home.adapter.SearchedMovieAdapter
 import com.efecanbayat.movieapplication.ui.feature.home.adapter.SearchedPersonAdapter
-import com.efecanbayat.movieapplication.ui.feature.movieDetail.CastData
-import com.efecanbayat.movieapplication.ui.feature.movieDetail.OnCastItemClickListener
-import com.efecanbayat.movieapplication.ui.feature.movieDetail.adapter.MovieCastAdapter
-import com.efecanbayat.movieapplication.ui.feature.personDetail.CreditsData
-import com.efecanbayat.movieapplication.ui.feature.personDetail.adapter.PersonCreditsAdapter
+import com.efecanbayat.movieapplication.ui.feature.home.decoration.PopularMovieItemDecoration
+import com.efecanbayat.movieapplication.ui.feature.home.decoration.SearchedItemDecoration
+import com.efecanbayat.movieapplication.ui.feature.moviedetail.CastData
+import com.efecanbayat.movieapplication.ui.feature.moviedetail.OnCastItemClickListener
+import com.efecanbayat.movieapplication.ui.feature.moviedetail.adapter.MovieCastAdapter
+import com.efecanbayat.movieapplication.ui.feature.moviedetail.decoration.CastItemDecoration
+import com.efecanbayat.movieapplication.ui.feature.persondetail.CreditsData
+import com.efecanbayat.movieapplication.ui.feature.persondetail.adapter.PersonCreditsAdapter
+import com.efecanbayat.movieapplication.ui.feature.persondetail.decoration.CreditsItemDecoration
 
 @BindingAdapter("imageUrl")
 fun ImageView.loadUrlImage(url: String?) {
     Glide.with(this)
         .load(if (url?.isNotEmpty() == true) "${Constants.BASE_IMAGE_URL}$url" else null)
+        .placeholder(R.drawable.placeholder)
         .into(this)
 }
 
-@BindingAdapter(value = ["app:loadHomeData", "app:onItemClickListener", "app:viewModel"])
-fun RecyclerView.loadHomeData(homeDataHolder: HomeDataHolder?, onItemClickListener: OnHomeItemClickListener, viewModel: HomeViewModel) {
+@BindingAdapter(value = ["app:loadHomeData", "app:onItemClickListener"])
+fun RecyclerView.loadHomeData(homeDataHolder: HomeDataHolder?, onItemClickListener: OnHomeItemClickListener) {
     homeDataHolder?.let {
         val homeAdapter = if (adapter != null) {
             adapter as HomeAdapter
         } else {
-            adapter = HomeAdapter(onItemClickListener, viewModel)
+            adapter = HomeAdapter(onItemClickListener)
             adapter as HomeAdapter
         }
         homeAdapter.submitList(it.prepareData())
@@ -51,6 +57,10 @@ fun RecyclerView.loadSearchedMovieList(searchedMovieData: SearchedMovieData?, on
         }
         searchedMovieAdapter.submitList(it)
     }
+
+    if (itemDecorationCount == 0) {
+        addItemDecoration(SearchedItemDecoration(context.resources.getDimension(R.dimen.dimen_medium).toInt()))
+    }
 }
 
 @BindingAdapter(value = ["app:loadSearchedPersonList", "app:onItemClickListener"])
@@ -63,6 +73,10 @@ fun RecyclerView.loadSearchedPersonList(searchedPersonData: SearchedPersonData?,
             adapter as SearchedPersonAdapter
         }
         searchedPersonAdapter.submitList(it)
+    }
+
+    if (itemDecorationCount == 0) {
+        addItemDecoration(SearchedItemDecoration(context.resources.getDimension(R.dimen.dimen_medium).toInt()))
     }
 }
 
@@ -77,6 +91,10 @@ fun RecyclerView.loadPopularMovieList(popularMovieData: PopularMovieData?, onIte
         }
         movieAdapter.submitList(it)
     }
+
+    if (itemDecorationCount == 0) {
+        addItemDecoration(PopularMovieItemDecoration(context.resources.getDimension(R.dimen.dimen_medium).toInt()))
+    }
 }
 
 @BindingAdapter(value = ["app:loadCastList", "app:onItemClickListener"])
@@ -90,6 +108,10 @@ fun RecyclerView.loadCastList(castData: CastData?, onItemClickListener: OnCastIt
         }
         movieCastAdapter.submitList(it)
     }
+
+    if (itemDecorationCount == 0) {
+        addItemDecoration(CastItemDecoration(context.resources.getDimension(R.dimen.dimen_small).toInt()))
+    }
 }
 
 @BindingAdapter(value = ["app:loadCreditList"])
@@ -102,5 +124,9 @@ fun RecyclerView.loadCreditList(creditsData: CreditsData?) {
             adapter as PersonCreditsAdapter
         }
         personCreditsAdapter.submitList(it)
+    }
+
+    if (itemDecorationCount == 0) {
+        addItemDecoration(CreditsItemDecoration(context.resources.getDimension(R.dimen.dimen_medium).toInt()))
     }
 }

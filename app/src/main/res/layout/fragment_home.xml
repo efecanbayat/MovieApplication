@@ -38,7 +38,7 @@
             android:id="@+id/rvHome"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -47,7 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchView"
             app:loadHomeData="@{viewModel.homeLiveData}"
-            app:onItemClickListener="@{onItemClickListener}"
-            app:viewModel="@{viewModel}" />
+            app:onItemClickListener="@{onItemClickListener}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

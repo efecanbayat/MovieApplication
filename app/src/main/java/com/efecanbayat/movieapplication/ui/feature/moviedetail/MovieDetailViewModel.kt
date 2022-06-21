@@ -1,9 +1,9 @@
-package com.efecanbayat.movieapplication.ui.feature.movieDetail
+package com.efecanbayat.movieapplication.ui.feature.moviedetail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.efecanbayat.movieapplication.data.model.response.movieDetail.Cast
-import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieDetailResponse
+import com.efecanbayat.movieapplication.data.model.response.moviedetail.Cast
+import com.efecanbayat.movieapplication.data.model.response.moviedetail.MovieDetailResponse
 import com.efecanbayat.movieapplication.data.repository.MovieRepository
 import com.efecanbayat.movieapplication.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel

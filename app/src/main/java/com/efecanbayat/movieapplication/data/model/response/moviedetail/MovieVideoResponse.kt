@@ -1,4 +1,4 @@
-package com.efecanbayat.movieapplication.data.model.response.movieDetail
+package com.efecanbayat.movieapplication.data.model.response.moviedetail
 
 
 import com.google.gson.annotations.SerializedName

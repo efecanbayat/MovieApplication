@@ -20,6 +20,8 @@ abstract class BaseFragment<binding : ViewDataBinding> : Fragment() {
     private var progressBar: CustomProgressBar? = null
     lateinit var binding: binding
 
+    private var pageTitle: String = "Movies"
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,7 +37,6 @@ abstract class BaseFragment<binding : ViewDataBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initProgressBar()
         pageConfigs()
     }
@@ -45,10 +46,13 @@ abstract class BaseFragment<binding : ViewDataBinding> : Fragment() {
             when (layoutId) {
                 R.layout.fragment_home -> {
                     isVisibleToolbar(true)
+                    setPageTitle("Movies")
+                    setTitleText(pageTitle)
                     isVisibleBackButton(false)
                 }
                 R.layout.fragment_movie_detail -> {
                     isVisibleToolbar(true)
+                    setTitleText(pageTitle)
                     isVisibleBackButton(true)
                     backButtonClick {
                         findNavController().popBackStack()
@@ -56,6 +60,7 @@ abstract class BaseFragment<binding : ViewDataBinding> : Fragment() {
                 }
                 R.layout.fragment_person_detail -> {
                     isVisibleToolbar(true)
+                    setTitleText(pageTitle)
                     isVisibleBackButton(true)
                     backButtonClick {
                         findNavController().popBackStack()
@@ -63,6 +68,10 @@ abstract class BaseFragment<binding : ViewDataBinding> : Fragment() {
                 }
             }
         }
+    }
+
+    fun setPageTitle(title: String) {
+        pageTitle = title
     }
 
     fun showProgress() {

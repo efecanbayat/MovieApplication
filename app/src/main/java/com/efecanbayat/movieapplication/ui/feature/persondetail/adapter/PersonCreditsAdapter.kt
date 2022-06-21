@@ -1,11 +1,11 @@
-package com.efecanbayat.movieapplication.ui.feature.personDetail.adapter
+package com.efecanbayat.movieapplication.ui.feature.persondetail.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.efecanbayat.movieapplication.data.model.response.personDetail.Cast
+import com.efecanbayat.movieapplication.data.model.response.persondetail.Cast
 import com.efecanbayat.movieapplication.databinding.ItemCreditBinding
 
 class PersonCreditsAdapter : ListAdapter<Cast, PersonCreditsAdapter.PersonCreditsViewHolder>(PersonCreditsDiffUtil()) {

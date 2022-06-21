@@ -12,20 +12,20 @@
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/drawable/ic_no_results.xml" value="0.303" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/drawable/search_bar_background.xml" value="0.1995" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/font/font.xml" value="0.2833333333333333" />
-        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/activity_main.xml" value="0.1910569105691057" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/custom_progress_bar.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/fragment_movie_detail.xml" value="0.152" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/fragment_person_detail.xml" value="0.18984375" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_cast.xml" value="0.30085470085470084" />
-        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_credit.xml" value="1.1420454545454546" />
+        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_credit.xml" value="0.6547619047619048" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_movie.xml" value="0.1721311475409836" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_movie_list.xml" value="0.1" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_movie_loading.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_search_bar.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_searched_movie.xml" value="0.4" />
-        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_searched_movie_list.xml" value="0.3282828282828283" />
-        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_searched_person.xml" value="0.365625" />
+        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_searched_movie.xml" value="0.3197278911564626" />
+        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_searched_movie_list.xml" value="0.1327683615819209" />
+        <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_searched_person.xml" value="0.34814814814814815" />
         <entry key="..\:/Users/Efe/AndroidStudioProjects/MovieApplication/app/src/main/res/layout/item_searched_person_list.xml" value="0.275" />
       </map>
     </option>

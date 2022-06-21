@@ -36,10 +36,8 @@ class HomeViewModel @Inject constructor(
     private val searchMovieLiveData = MutableLiveData<SearchedMovieData?>()
     private val searchPersonLiveData = MutableLiveData<SearchedPersonData?>()
 
-    private var page = 1
-
     init {
-        getMovies(false)
+        getMovies()
 
         homeLiveData.addSource(movieLiveData) {
             homeLiveData.value = homeLiveData.value?.apply {
@@ -60,11 +58,9 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getMovies(nextPage: Boolean) {
-        page = if (nextPage) page + 1 else 1
-
+    private fun getMovies() {
         viewModelScope.launch {
-            repository.getMovies(page).collect { response ->
+            repository.getMovies().collect { response ->
                 when (response) {
                     is DataState.Error -> {
                         _uiState.update {
@@ -77,23 +73,18 @@ class HomeViewModel @Inject constructor(
                     is DataState.Loading -> {
                         _uiState.update {
                             it.copy(
-                                isLoading = nextPage.not()
+                                isLoading = true
                             )
                         }
                     }
                     is DataState.Success -> {
                         _uiState.update {
                             val prepareList = ArrayList<MovieItemViewType>().apply {
-                                if (page != 1) {
-                                    it.movies?.dropLastWhile { t -> t is MovieItemViewType.Loading }
-                                        ?.let { a -> addAll(a) }
-                                }
                                 response.data.results?.map { result ->
                                     MovieItemViewType.MovieItem(
                                         result
                                     )
                                 }?.let { a -> addAll(a) }
-                                if (response.data.totalPages != page) add(MovieItemViewType.Loading)
                             }
                             movieLiveData.value = PopularMovieData(prepareList)
                             it.copy(
@@ -180,12 +171,9 @@ sealed class MovieItemViewType {
     data class MovieItem(val movie: Result) : MovieItemViewType()
     data class SearchPersonItem(val person: SearchResult) : MovieItemViewType()
     data class SearchMovieItem(val movie: SearchResult) : MovieItemViewType()
-    object Loading : MovieItemViewType()
 }
 
-sealed class MediaType {
-    companion object {
-        const val MOVIE = "movie"
-        const val PERSON = "person"
-    }
+object MediaType {
+    const val MOVIE = "movie"
+    const val PERSON = "person"
 }

@@ -4,4 +4,6 @@
     <string name="actors">Actors</string>
     <string name="video">VIDEO</string>
     <string name="credits">Credits</string>
+    <string name="person_name">Person Name</string>
+    <string name="movie_title">Movie Title</string>
 </resources>

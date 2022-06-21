@@ -1,12 +1,12 @@
-package com.efecanbayat.movieapplication.ui.feature.movieDetail.adapter
+package com.efecanbayat.movieapplication.ui.feature.moviedetail.adapter
 
-import com.efecanbayat.movieapplication.ui.feature.movieDetail.OnCastItemClickListener
+import com.efecanbayat.movieapplication.ui.feature.moviedetail.OnCastItemClickListener
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.efecanbayat.movieapplication.data.model.response.movieDetail.Cast
+import com.efecanbayat.movieapplication.data.model.response.moviedetail.Cast
 import com.efecanbayat.movieapplication.databinding.ItemCastBinding
 
 class MovieCastAdapter(private val onItemClickListener: OnCastItemClickListener) :

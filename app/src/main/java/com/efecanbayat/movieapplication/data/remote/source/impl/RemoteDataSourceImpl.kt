@@ -2,11 +2,11 @@ package com.efecanbayat.movieapplication.data.remote.source.impl
 
 import com.efecanbayat.movieapplication.data.base.BaseRemoteDataSource
 import com.efecanbayat.movieapplication.data.model.response.home.MovieResponse
-import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieCreditsResponse
-import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieDetailResponse
-import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieVideoResponse
-import com.efecanbayat.movieapplication.data.model.response.personDetail.PersonCreditsResponse
-import com.efecanbayat.movieapplication.data.model.response.personDetail.PersonDetailResponse
+import com.efecanbayat.movieapplication.data.model.response.moviedetail.MovieCreditsResponse
+import com.efecanbayat.movieapplication.data.model.response.moviedetail.MovieDetailResponse
+import com.efecanbayat.movieapplication.data.model.response.moviedetail.MovieVideoResponse
+import com.efecanbayat.movieapplication.data.model.response.persondetail.PersonCreditsResponse
+import com.efecanbayat.movieapplication.data.model.response.persondetail.PersonDetailResponse
 import com.efecanbayat.movieapplication.data.model.response.search.SearchResponse
 import com.efecanbayat.movieapplication.data.remote.api.MovieService
 import com.efecanbayat.movieapplication.data.remote.source.RemoteDataSource
@@ -17,9 +17,9 @@ import javax.inject.Inject
 class RemoteDataSourceImpl @Inject constructor(
     private val movieService: MovieService
 ) : RemoteDataSource, BaseRemoteDataSource() {
-    override suspend fun getMovies(page: Int): Flow<DataState<MovieResponse>> {
+    override suspend fun getMovies(): Flow<DataState<MovieResponse>> {
         return getResult {
-            movieService.getMovies(page)
+            movieService.getMovies()
         }
     }
 

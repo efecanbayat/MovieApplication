@@ -11,15 +11,15 @@
 
         <variable
             name="movie"
-            type="com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieDetailResponse" />
+            type="com.efecanbayat.movieapplication.data.model.response.moviedetail.MovieDetailResponse" />
 
         <variable
             name="onItemClickListener"
-            type="com.efecanbayat.movieapplication.ui.feature.movieDetail.OnCastItemClickListener" />
+            type="com.efecanbayat.movieapplication.ui.feature.moviedetail.OnCastItemClickListener" />
 
         <variable
             name="castData"
-            type="com.efecanbayat.movieapplication.ui.feature.movieDetail.CastData" />
+            type="com.efecanbayat.movieapplication.ui.feature.moviedetail.CastData" />
     </data>
 
     <ScrollView
@@ -55,22 +55,6 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/tvMovieTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:fontFamily="@font/poppins_semi_bold"
-                android:text="@{movie.title}"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cvMoviePoster" />
-
-            <TextView
                 android:id="@+id/tvMovieOverview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +65,7 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMovieTitle" />
+                app:layout_constraintTop_toBottomOf="@id/cvMoviePoster" />
 
             <TextView
                 android:id="@+id/tvRealeaseDate"

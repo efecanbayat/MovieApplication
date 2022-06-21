@@ -9,11 +9,11 @@
 
         <variable
             name="person"
-            type="com.efecanbayat.movieapplication.data.model.response.personDetail.PersonDetailResponse" />
+            type="com.efecanbayat.movieapplication.data.model.response.persondetail.PersonDetailResponse" />
 
         <variable
             name="creditsData"
-            type="com.efecanbayat.movieapplication.ui.feature.personDetail.CreditsData" />
+            type="com.efecanbayat.movieapplication.ui.feature.persondetail.CreditsData" />
     </data>
 
     <ScrollView
@@ -49,22 +49,6 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/tvPersonName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:fontFamily="@font/poppins_semi_bold"
-                android:text="@{person.name}"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cvPersonPoster" />
-
-            <TextView
                 android:id="@+id/tvPersonBiography"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,13 +59,13 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPersonName" />
+                app:layout_constraintTop_toBottomOf="@id/cvPersonPoster" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical"
                 android:visibility="@{creditsData.creditsItem.isEmpty() ? View.GONE : View.VISIBLE}"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -103,6 +87,7 @@
                     android:id="@+id/rvCredits"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:orientation="horizontal"
                     android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

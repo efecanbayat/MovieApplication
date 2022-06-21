@@ -2,7 +2,6 @@ package com.efecanbayat.movieapplication.data.base
 
 import com.efecanbayat.movieapplication.data.model.APIError
 import com.efecanbayat.movieapplication.utils.DataState
-import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
@@ -15,8 +14,7 @@ open class BaseRemoteDataSource {
                 val body = response.body()
                 if (body != null) emit(DataState.Success(body))
             } else {
-                val error = Gson().fromJson(response.errorBody()?.string(), APIError::class.java)
-                emit(DataState.Error(error))
+                emit(DataState.Error(APIError(response.code().toLong(), response.errorBody().toString()) ))
             }
         }.catch {
             emit(DataState.Error(APIError(-1, it.message ?: it.toString())))

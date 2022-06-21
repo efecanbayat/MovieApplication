@@ -1,11 +1,11 @@
 package com.efecanbayat.movieapplication.data.remote.api
 
 import com.efecanbayat.movieapplication.data.model.response.home.MovieResponse
-import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieCreditsResponse
-import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieDetailResponse
-import com.efecanbayat.movieapplication.data.model.response.movieDetail.MovieVideoResponse
-import com.efecanbayat.movieapplication.data.model.response.personDetail.PersonCreditsResponse
-import com.efecanbayat.movieapplication.data.model.response.personDetail.PersonDetailResponse
+import com.efecanbayat.movieapplication.data.model.response.moviedetail.MovieCreditsResponse
+import com.efecanbayat.movieapplication.data.model.response.moviedetail.MovieDetailResponse
+import com.efecanbayat.movieapplication.data.model.response.moviedetail.MovieVideoResponse
+import com.efecanbayat.movieapplication.data.model.response.persondetail.PersonCreditsResponse
+import com.efecanbayat.movieapplication.data.model.response.persondetail.PersonDetailResponse
 import com.efecanbayat.movieapplication.data.model.response.search.SearchResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -15,7 +15,6 @@ import retrofit2.http.Query
 interface MovieService {
     @GET("movie/popular")
     suspend fun getMovies(
-        @Query("page") page: Int
     ): Response<MovieResponse>
 
     @GET("search/multi")

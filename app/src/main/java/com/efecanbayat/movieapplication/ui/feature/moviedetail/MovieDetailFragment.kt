@@ -1,4 +1,4 @@
-package com.efecanbayat.movieapplication.ui.feature.movieDetail
+package com.efecanbayat.movieapplication.ui.feature.moviedetail
 
 import android.content.Intent
 import android.net.Uri
@@ -25,6 +25,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(), OnCastIt
     private var videoKey: String? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setPageTitle(args.title ?: getString(R.string.movie_title))
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getMovie(args.id)
@@ -58,13 +59,18 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(), OnCastIt
         }
     }
 
-    override fun onCastItemClick(personId: Int?) {
+    override fun onCastItemClick(personId: Int?, name: String?) {
         personId?.let {
-            findNavController().navigate(MovieDetailFragmentDirections.actionMovieDetailFragmentToPersonDetailFragment(personId))
+            findNavController().navigate(
+                MovieDetailFragmentDirections.actionMovieDetailFragmentToPersonDetailFragment(
+                    personId,
+                    name
+                )
+            )
         }
     }
 }
 
 interface OnCastItemClickListener {
-    fun onCastItemClick(personId: Int?)
+    fun onCastItemClick(personId: Int?, name: String?)
 }

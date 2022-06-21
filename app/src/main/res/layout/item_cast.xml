@@ -5,19 +5,18 @@
 
         <variable
             name="onItemClickListener"
-            type="com.efecanbayat.movieapplication.ui.feature.movieDetail.OnCastItemClickListener" />
+            type="com.efecanbayat.movieapplication.ui.feature.moviedetail.OnCastItemClickListener" />
 
         <variable
             name="item"
-            type="com.efecanbayat.movieapplication.data.model.response.movieDetail.Cast" />
+            type="com.efecanbayat.movieapplication.data.model.response.moviedetail.Cast" />
     </data>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
         android:backgroundTint="@color/cream"
-        android:onClick="@{() -> onItemClickListener.onCastItemClick(item.id)}"
+        android:onClick="@{() -> onItemClickListener.onCastItemClick(item.id, item.name)}"
         android:text="@{item.name}"
         android:textColor="@color/black" />
 </layout>

@@ -19,11 +19,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
         android:backgroundTint="@color/cream"
         android:elevation="8dp"
-        android:onClick="@{() -> onItemClickListener.onMovieClick(item.id)}"
+        android:onClick="@{() -> onItemClickListener.onMovieClick(item.id, item.title)}"
         app:cardCornerRadius="8dp"
         app:contentPadding="16sp">
 

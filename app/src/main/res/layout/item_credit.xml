@@ -7,14 +7,12 @@
 
         <variable
             name="item"
-            type="com.efecanbayat.movieapplication.data.model.response.personDetail.Cast" />
+            type="com.efecanbayat.movieapplication.data.model.response.persondetail.Cast" />
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="190dp"
-        android:layout_marginVertical="16dp"
-        android:layout_marginStart="16dp"
         android:backgroundTint="@color/cream"
         android:elevation="8dp"
         app:cardCornerRadius="8dp">

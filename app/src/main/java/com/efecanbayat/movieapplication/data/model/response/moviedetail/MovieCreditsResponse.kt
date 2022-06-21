@@ -1,8 +1,8 @@
-package com.efecanbayat.movieapplication.data.model.response.personDetail
+package com.efecanbayat.movieapplication.data.model.response.moviedetail
 
 import com.google.gson.annotations.SerializedName
 
-data class PersonCreditsResponse(
+data class MovieCreditsResponse(
     @SerializedName("cast")
     val cast: ArrayList<Cast?>?,
     @SerializedName("crew")
