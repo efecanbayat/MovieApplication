@@ -66,6 +66,9 @@ abstract class BaseFragment<binding : ViewDataBinding> : Fragment() {
                         findNavController().popBackStack()
                     }
                 }
+                R.layout.fragment_splash -> {
+                    isVisibleToolbar(false)
+                }
             }
         }
     }
