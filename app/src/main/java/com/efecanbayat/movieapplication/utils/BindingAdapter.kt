@@ -29,7 +29,6 @@ import com.efecanbayat.movieapplication.ui.feature.persondetail.decoration.Credi
 fun ImageView.loadUrlImage(url: String?) {
     Glide.with(this)
         .load(if (url?.isNotEmpty() == true) "${Constants.BASE_IMAGE_URL}$url" else null)
-        .placeholder(R.drawable.placeholder)
         .into(this)
 }
 

@@ -12,8 +12,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="8dp"
             app:cardBackgroundColor="@color/black">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,6 +55,7 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph" />
     </LinearLayout>
